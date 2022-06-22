@@ -11,6 +11,7 @@ HST_RATE = 0.15
 def get_travel_claim():
         # Input
     while True:
+        # Employee number
         while True:
             emp_num = input("Enter employee number: ")
             if emp_num == "":
@@ -19,7 +20,7 @@ def get_travel_claim():
                 print("Invalid input. Employee number must be 5 characters long. Try again.")
             else:
                 break
-
+        # Employee first name
         while True:
             emp_f_name = input("Enter employee first name: ").title()
             if emp_f_name == "":
@@ -27,6 +28,7 @@ def get_travel_claim():
             else:
                 break
 
+        # Employee second name
         while True:
             emp_l_name = input("Enter employee last name: ").title()
             if emp_l_name == "":
@@ -34,6 +36,7 @@ def get_travel_claim():
             else:
                 break
 
+        # Location of trip
         while True:
             loc_trip = input("Enter location of trip: ").title()
             if loc_trip == "":
@@ -41,6 +44,7 @@ def get_travel_claim():
             else:
                 break
 
+        # Start date of trip
         while True:
             try:
                 start_date = input("Enter Start date of trip (mm/dd/yyyy): ")
@@ -50,7 +54,7 @@ def get_travel_claim():
             else:
                 break
 
-
+        # End date of trip
         while True:
             try:
                 end_date = input("Enter End date of trip (mm/dd/yyyy): ")
@@ -63,8 +67,7 @@ def get_travel_claim():
                 else:
                     break
 
-
-
+        # Number of days of trip
         while True:
             try:
                 num_days = int(input("Enter Number of days: "))
@@ -76,6 +79,7 @@ def get_travel_claim():
                 else:
                     break
 
+        # Car type
         while True:
             car_type = input("Was the car used your own or rented (O/R): ").upper()
             if car_type == "":
@@ -100,6 +104,7 @@ def get_travel_claim():
             else:
                 print("Invalid input. Input must be 'O' or 'R'. Try again.")
 
+        # Claim type
         while True:
             claim_type = input("Enter the Claim type (S/E): ").upper()
             if claim_type == "S":
@@ -170,6 +175,7 @@ def get_travel_claim():
         print(f"Claim total: {claim_total_dsp:>23s}")
         print()
 
+        # end program and return to main menu or input another claim
         while True:
             cont = input("Would you like to Process another claim? (Y/N): ").upper()
             if cont == "Y":

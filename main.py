@@ -19,6 +19,7 @@ while True:
         print("5. Quit Program.")
         print()
 
+        # User input for choice
         while True:
             choice = int(input("Enter choice (1-5): "))
             print()

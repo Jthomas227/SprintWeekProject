@@ -51,16 +51,19 @@ def get_travel_claim():
                 break
 
 
-        while True: # Doesn't break out of loop
+        while True:
             try:
                 end_date = input("Enter End date of trip (mm/dd/yyyy): ")
                 end_date_obj = dt.datetime.strptime(end_date, "%m/%d/%Y")
+            except:
+                print("Invalid format. Format must be (mm/dd/yyyy). Try again.")
+            else:
                 if end_date_obj > start_date_obj + dt.timedelta(days=7):
                     print("Invalid input. End date of trip must be within 7 days of start date. Try again.")
-            except:
-                    print("Invalid format. Format must be (mm/dd/yyyy). Try again.")
-            else:
-                break
+                else:
+                    break
+
+
 
         while True:
             try:
@@ -78,14 +81,19 @@ def get_travel_claim():
             if car_type == "":
                 print("Invalid input. Try again.")
             elif car_type == "O":
-                while True: # Doesn't break out of loop
-                    try:
-                        total_km = int(input("Enter total amount of KM: ")) # only used when employee used their own car cannot exceed 2000
-                    except:
-                        if total_km < 1 or total_km > 2000:
-                            print("Invalid input. Total Km's cannot be less than 1 or greater than 2000. Try again.")
-                    else:
-                        break
+                while True:
+                    while True:
+                        try:
+                            total_km = int(input("Enter total amount of KM: "))
+                        except:
+                            print("Invalid input. Try again.")
+                        else:
+                            if total_km < 1 or total_km > 2000:
+                                print("Invalid input. Total Km's cannot be less than 1 or greater than 2000. Try again.")
+                            else:
+                                break
+                    break
+                break
             elif car_type == "R":
                 total_km = 0
                 break
@@ -101,10 +109,12 @@ def get_travel_claim():
             else:
                 print("Invalid input. Input must be 'S' or 'E'. Try again.")
 
-
-
+        # Calculations
         emp_name = emp_f_name + " " + emp_l_name
         per_diem = num_days * DAILY_RATE
+
+        mil_amt = 0
+        mil_pay = 0
 
         if car_type == "O":
             mil_amt = total_km * MILE_RATE_OWN
@@ -131,26 +141,33 @@ def get_travel_claim():
 
         claim_total = claim_amt + hst
 
+        # Formatting
+        hst_dsp = "${:.2f}".format(hst)
+        claim_amt_dsp = "${:.2f}".format(claim_amt)
+        mil_amt_dsp = "${:.2f}".format(mil_amt)
+        mil_pay_dsp = "${:.2f}".format(mil_pay)
+        claim_total_dsp = "${:.2f}".format(claim_total)
+
         # Output
         print()
         print("Nl Chocolate Company Claim Processed")
         print("------------------------------------")
-        print(f"Employee number {emp_num}")
-        print(f"Employee name {emp_name}")
-        print(f"Trip location {loc_trip}")
-        print(f"Start Date {start_date}")
-        print(f"End Date {end_date}")
-        print(f"Number of days {num_days}")
-        print(f"Car used {car_type}")
-        print(f"Claim type {claim_type}")
-        print(f"claim amount {claim_amt}")
+        print(f"Employee number: {emp_num:>19s}")
+        print(f"Employee name: {emp_name:>21s}")
+        print(f"Trip location: {loc_trip:>21s}")
+        print(f"Start Date: {start_date:>24s}")
+        print(f"End Date: {end_date:>26s}")
+        print(f"Number of days: {num_days:>20d}")
+        print(f"Car used: {car_type:>26s}")
+        print(f"Claim type: {claim_type:>24s}")
+        print(f"claim amount: {claim_amt_dsp:>22s}")
         if mil_amt > 0:
-            print(f"Mileage amount: {mil_amt}")
+            print(f"Mileage amount: {mil_amt_dsp:>20s}")
         if mil_pay > 0:
-            print(f"Pay for rental car {mil_pay}")
-        print(f"Hst {hst}")
+            print(f"Pay for rental car: {mil_pay_dsp:>16s}")
+        print(f"Hst: {hst_dsp:>31s}")
         print("------------------------------------")
-        print(f"Claim total {claim_total}")
+        print(f"Claim total: {claim_total_dsp:>23s}")
         print()
 
         while True:
@@ -158,6 +175,6 @@ def get_travel_claim():
             if cont == "Y":
                 break
             elif cont == "N":
-                exit()
+                return
             else:
                 print("Invalid input. Try again.")

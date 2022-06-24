@@ -117,9 +117,13 @@ def cool_string_dates():
 
     # Employee company ID is Based on First Letter of first and last name,
     # last 2 digits of phone number and last 2 digits birth date.
-        while True:
-            ReturnToMain = input("Would you like to exit to main menu Y/N?").upper() # Needs work
-            if ReturnToMain.upper == "Y":
-                break
-            elif ReturnToMain.upper() == "N":
-                exit()
+
+        ReturnToMain = input("Would you like to exit to main menu Y/N?") # Needs work
+        if ReturnToMain.upper() == "N":
+            continue
+        elif ReturnToMain.upper() == "Y":
+            print()
+            return ReturnToMain
+        else:
+            print("Invalid input. Try again.")
+

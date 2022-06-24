@@ -1,6 +1,6 @@
 # NL Chocolate company Program
 # Authors: Jacob Thomas & Devin Augot
-# Date completed:
+# Date completed: 06/24/2022
 
 import option1
 import option4

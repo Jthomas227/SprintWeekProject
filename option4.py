@@ -27,4 +27,3 @@ def get_month_rev_chart():
     plt.show()
 
     cont = input("Press any Key to continue...")
-

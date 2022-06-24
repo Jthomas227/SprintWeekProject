@@ -4,7 +4,7 @@
 
 import option1
 import option4
-
+import option23
 
 while True:
     while True:
@@ -28,14 +28,16 @@ while True:
             elif choice == 1:
                 option1.get_travel_claim()
                 break
-            # elif choice == 2:
-                # option 2 program
-            # elif choice == 3:
-                # option 3 program
+            elif choice == 2:
+                option23.fizzbuzz()
+                break
+            elif choice == 3:
+                option23.cool_string_dates()
+                break
             elif choice == 4:
                 option4.get_month_rev_chart()
                 break
-            elif choice == 5:
-                break
+            else:
+                exit()
 
 

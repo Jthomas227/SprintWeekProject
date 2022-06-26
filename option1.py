@@ -50,7 +50,7 @@ def get_travel_claim():
                 start_date = input("Enter Start date of trip (mm/dd/yyyy): ")
                 start_date_obj = dt.datetime.strptime(start_date, "%m/%d/%Y")
             except:
-                print("Invalid format. Format must be (mm/dd/yy). Try again.")
+                print("Invalid format. Format must be (mm/dd/yyyy). Try again.")
             else:
                 break
 

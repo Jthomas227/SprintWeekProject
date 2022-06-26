@@ -9,6 +9,7 @@ import option23
 while True:
     while True:
         # Main Menu
+        print()
         print("Nl Chocolate Company")
         print("Travel Claims Processing System")
         print()
@@ -21,23 +22,27 @@ while True:
 
         # User input for choice
         while True:
-            choice = int(input("Enter choice (1-5): "))
-            print()
-            if choice < 1 or choice > 5:
-                print("Invalid input. Try again")
-            elif choice == 1:
-                option1.get_travel_claim()
-                break
-            elif choice == 2:
-                option23.fizzbuzz()
-                break
-            elif choice == 3:
-                option23.cool_string_dates()
-                break
-            elif choice == 4:
-                option4.get_month_rev_chart()
-                break
+            try:
+                choice = int(input("Enter choice (1-5): "))
+            except:
+                print("Invalid input. Try again.")
             else:
-                exit()
+                if choice < 1 or choice > 5:
+                    print("Invalid input. Try again")
+                elif choice == 1:
+                    option1.get_travel_claim()
+                    break
+                elif choice == 2:
+                    option23.fizzbuzz()
+                    break
+                elif choice == 3:
+                    option23.cool_string_dates()
+                    break
+                elif choice == 4:
+                    option4.get_month_rev_chart()
+                    break
+                else:
+                    exit()
+
 
 

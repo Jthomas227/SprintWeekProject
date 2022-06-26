@@ -4,6 +4,7 @@
 import datetime
 from datetime import date
 
+
 def fizzbuzz():
     while True:
         for Numbers in range(1, 101):
@@ -44,12 +45,12 @@ def Age(birthdate):
     age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
     return age
 
+
 def cool_string_dates():
     while True:
         CurDate = datetime.datetime.now()
         CurYear = 2022
         EmployeeID = []
-
 
         while True:
             EmpName = input("Enter the employees name: ")
@@ -118,7 +119,7 @@ def cool_string_dates():
     # Employee company ID is Based on First Letter of first and last name,
     # last 2 digits of phone number and last 2 digits birth date.
 
-        ReturnToMain = input("Would you like to exit to main menu Y/N?") # Needs work
+        ReturnToMain = input("Would you like to exit to main menu Y/N?")
         if ReturnToMain.upper() == "N":
             continue
         elif ReturnToMain.upper() == "Y":
